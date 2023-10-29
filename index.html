@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab || www.codinglabweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediWaste Connect</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Unicons -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div style="display: flex">
+          <img src="./logo.png" alt="" id="logo" />
+        </div>
+
+        <div style="display: flex">
+          <ul class="nav_items" style="margin-right: 25px">
+            <li class="nav_item">
+              <a href="#" class="nav_link" id="homePage">Home</a>
+              <a href="#" class="nav_link" id="showServices">Our Services</a>
+              <a href="#" class="nav_link" id="showClients">Our Clients</a>
+              <a href="#" class="nav_link" id="showContact">Contact Us</a>
+            </li>
+          </ul>
+
+          <button class="button" id="form-open">Login</button>
+          <button class="button" id="logout">Logout</button>
+
+          <div>
+            <i class="uil uil-user" id="profile"></i>
+            <span id="userName"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <section id="home">
+      <!-- sliding images -->
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="slide1.jpg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="slide2.jpg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="slide3.jpg" style="width: 100%" />
+        </div>
+        <div class="mySlides fade">
+          <img src="slide4.jpg" style="width: 100%" />
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div style="text-align: center;
+        position: relative;
+        bottom: 90px;">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+      </div>
+      <div class="about-us">
+        <h1 style="text-align: center; margin-bottom: 10px">About Us</h1>
+        <img src="aboutUs.jpg" style="width: 100%" />
+      </div>
+      <div class="purpose">
+        <h1 style="text-align: center; margin-bottom: 10px">Our Purpose</h1>
+        <img src="ourPurpose.jpg" style="width: 100%" />
+      </div>
+      <div class="objective">
+        <h1 style="text-align: center; margin-bottom: 10px;">Our Objective</h1>
+        <img src="objective.png" style="width: 100%; height: 100vh;width: 100vw;" />
+      </div>
+      <div class="processDesign">
+        <h1 style="text-align: center; margin-bottom: 10px">Process Design</h1>
+        <img src="processDesign.jpg" style="width: 100%; margin-bottom: 50px;" />
+      </div>
+      <!-- git in forms -->
+      <div id="snackbar"></div>
+      <div class="form_container">
+        <i class="uil uil-times form_close"></i>
+        <!-- Login From -->
+        <div class="form login_form">
+          <form action="#">
+            <h2>Login</h2>
+
+            <div class="input_box">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                required
+                id="loginEmail"
+              />
+              <i class="uil uil-envelope-alt email"></i>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Enter your password"
+                id="loginPass"
+                required
+              />
+              <i class="uil uil-lock password"></i>
+              <i class="uil uil-eye-slash pw_hide"></i>
+            </div>
+            <div class="error" id="loginError">
+              Invalid credentials, please validated email or password.
+            </div>
+            <button class="button" id="loginNow">Login Now</button>
+
+            <div class="login_signup">
+              Don't have an account? <a href="#" id="signup">Register</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Signup From -->
+        <div class="form signup_form">
+          <form action="#">
+            <h2>Register</h2>
+
+            <div class="input_box">
+              <i class="uil uil-user"></i>
+              <input
+                type="text"
+                placeholder="Enter your full name"
+                id="name"
+                required
+              />
+            </div>
+            <div class="input_box">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                id="signupEmail"
+                required
+              />
+              <i class="uil uil-envelope-alt email"></i>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Create password"
+                id="signupPass1"
+                required
+              />
+              <i class="uil uil-lock password"></i>
+              <i class="uil uil-eye-slash pw_hide"></i>
+            </div>
+            <div class="input_box">
+              <input
+                type="password"
+                placeholder="Confirm password"
+                id="signupPass2"
+                required
+              />
+              <i class="uil uil-lock password"></i>
+              <i class="uil uil-eye-slash pw_hide"></i>
+            </div>
+            <div class="error" id="signupError">
+              Password & confirm password doesn't match, please validate.
+            </div>
+            <div class="error" id="userExistsError">
+              Email id already registered, please use different one.
+            </div>
+            <button class="button" id="signupNow">Register Now</button>
+
+            <div class="login_signup">
+              Already have an account? <a href="#" id="login">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- footer -->
+      <footer class="footerHome">
+        <div style="display: flex;justify-content: space-between;">
+          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+          <div>
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a href="https://google.com" class="fa fa-google"></a>
+            <a href="https://linkedin.com" class="fa fa-linkedin"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+        </div>
+        </div>
+      </footer> 
+    </section>
+    <!-- services -->
+    <section id="ourServices">
+      <h1>Our Services</h1>
+      <p style="text-align: center; margin-bottom: 30px">
+        Click on service name to select service:
+      </p>
+      <div style="display: flex">
+        <div id="wasteMgmt" style="width: 50%; text-align: center">
+          <h3>
+            <a
+              href="https://checkout.stripe.com/c/pay/cs_test_a1MT5w2FhfBSuYR24465FHlwAFsOyZPN1I2xRPYU5k4lWDlmSnM7VVKGHN#fidkdWxOYHwnPyd1blpxYHZxWjA0SHB9dHJWTDRVU2hQT01XT3MwYl12MUxiMk9ASVYyfG1wUGlVUWJsMF9CaUtMbz1VYU9PdDdKRjxIaGxJZn9kUHVUQ29tN3dOdUZnTHVdclNVfGFIZzIyNTVAfEpRdlNjSycpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVoxYnIycGI3d0Y0aE9nUmoxYm8nKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqaGBhbHJkdnFgZmpra2BmcStrYHFpbGN8K2R1dSoneCUl"
+              target="_blank">Waste Management</a
+            >
+          </h3>
+          <div class="step">
+            <h4>Generation</h4>
+            <p>
+              Generation refers to the creation of healthcare waste, which
+              includes various materials like used syringes, contaminated
+              dressings, and expired medicines. Hospitals and healthcare
+              facilities generate substantial amounts of waste daily.
+            </p>
+          </div>
+          <div class="step">
+            <h4>Accumulation</h4>
+            <p>
+              Accumulation involves the collection and temporary storage of
+              healthcare waste at healthcare facilities. Proper storage is
+              crucial to prevent contamination and maintain safety.
+            </p>
+          </div>
+          <div class="step">
+            <h4>Handling</h4>
+            <p>
+              Handling encompasses the safe and hygienic management of
+              healthcare waste from its point of generation to storage. It
+              includes the use of personal protective equipment (PPE) and proper
+              waste segregation.
+            </p>
+          </div>
+          <div class="step">
+            <h4>Storage</h4>
+            <p>
+              Storage refers to the secure containment of healthcare waste
+              before its eventual disposal. Different types of healthcare waste
+              may require separate storage facilities to prevent
+              cross-contamination.
+            </p>
+          </div>
+          <div class="step">
+            <h4>Treatment</h4>
+            <p>
+              Treatment involves processes to render healthcare waste less
+              hazardous or non-infectious. It may include methods like
+              autoclaving, incineration, or chemical treatment to reduce the
+              risk associated with the waste.
+            </p>
+          </div>
+          <div class="step">
+            <h4>Cart Heading</h4>
+            <p>
+              Disposal is the final step in healthcare waste management,
+              ensuring that waste is permanently and safely removed from
+              healthcare facilities. This can include landfill disposal,
+              incineration, or other approved methods, depending on regulations
+              and waste types.
+            </p>
+          </div>
+        </div>
+        <div id="recycle" style="width: 50%; text-align: center">
+          <h3>
+            <a
+              href="https://checkout.stripe.com/c/pay/cs_test_a1MT5w2FhfBSuYR24465FHlwAFsOyZPN1I2xRPYU5k4lWDlmSnM7VVKGHN#fidkdWxOYHwnPyd1blpxYHZxWjA0SHB9dHJWTDRVU2hQT01XT3MwYl12MUxiMk9ASVYyfG1wUGlVUWJsMF9CaUtMbz1VYU9PdDdKRjxIaGxJZn9kUHVUQ29tN3dOdUZnTHVdclNVfGFIZzIyNTVAfEpRdlNjSycpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVoxYnIycGI3d0Y0aE9nUmoxYm8nKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqaGBhbHJkdnFgZmpra2BmcStrYHFpbGN8K2R1dSoneCUl"
+              target="_blank">Recyclation</a
+            >
+          </h3>
+          <div class="step">
+            <h4>Recycling</h4>
+            <p>Recycling medical wastes into value added products.</p>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div style="display: flex;justify-content: space-between;">
+          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+          <div>
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a href="https://google.com" class="fa fa-google"></a>
+            <a href="https://linkedin.com" class="fa fa-linkedin"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+        </div>
+        </div>
+      </footer> 
+    </section>
+
+    <!-- clients -->
+    <section id="ourClients">
+      <h1>Our Clients</h1>
+      <div style="text-align: center">
+        Seva Hospital<br />
+        Ashirwad Hospital<br />
+        Samarth Clinic<br />
+        Yashodhan Multispecialist Hospital<br />
+        Sai Hospital<br />
+        Manavata Hospital<br />
+        Bhagavati Hospital<br />
+        Bachhav Hospital<br />
+        More Hospital<br />
+        Swaroop Hospital<br />
+        Kusoom Hospital and Nursing Home<br />
+        Apex Hospital<br />
+        Sim's Hospital<br />
+        Shah Hospital<br />
+        Jagatap Hospital<br />
+      </div>
+      <footer class="footer">
+        <div style="display: flex;justify-content: space-between;">
+          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+          <div>
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a href="https://google.com" class="fa fa-google"></a>
+            <a href="https://linkedin.com" class="fa fa-linkedin"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+        </div>
+        </div>
+      </footer> 
+    </section>
+<!-- contactus -->
+    <section id="contactUs">
+      <h1>Contact Us</h1>
+
+      <div style="display: flex; padding-top: 50px;">
+        <div id="contactUsLogo" style="width: 60%">
+          <img
+            src="./logo.png"
+            alt=""
+            style="width: 100%; margin-top: -160px"
+          />
+        </div>
+        <div style="width: 50%; text-align: center">
+          <div class="form contact_form" style="width: 70%">
+            <form onsubmit="sendMail(event)">
+              <div class="input_box">
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  id="contactName"
+                  required
+                />
+              </div>
+              <div class="input_box">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  id="contactEmail"
+                  required
+                />
+              </div>
+              <div class="input_box">
+                <input
+                  type="text"
+                  placeholder="Enter subject"
+                  id="contactSubject"
+                  required
+                />
+              </div>
+              <div class="input_box">
+                <input
+                  type="text"
+                  placeholder="Enter your message"
+                  id="contactMsg"
+                  required
+                />
+              </div>
+              <button type="submit" class="button" id="contactSubmit">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div style="display: flex;justify-content: space-between;">
+          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+          <div>
+            <a href="https://facebook.com" class="fa fa-facebook"></a>
+            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a href="https://google.com" class="fa fa-google"></a>
+            <a href="https://linkedin.com" class="fa fa-linkedin"></a>
+            <a href="https://instagram.com" class="fa fa-instagram"></a>
+        </div>
+        </div>
+      </footer> 
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
