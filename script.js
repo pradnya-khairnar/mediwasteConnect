@@ -1,5 +1,6 @@
 var formOpenBtn = document.getElementById("form-open");
 var home = document.querySelector("#home");
+var body = document.querySelector("body");
 var formContainer = document.querySelector(".form_container");
 var formCloseBtn = document.querySelector(".form_close");
 var signupBtn = document.getElementById("signup");
@@ -12,7 +13,7 @@ document.getElementById("profile").style.visibility = "hidden";
 document.getElementById("logout").style.display = "none";
 document.getElementById("showServices").style.display = "none";
 formOpenBtn.addEventListener('click', () => {
-  home.classList.add("show");
+  body.classList.add("show");
   document.getElementById("loginError").style.display = "none";
   document.getElementById("signupError").style.display = "none";
   document.getElementById("userExistsError").style.display = "none";
@@ -25,7 +26,7 @@ document.getElementById('logout').addEventListener('click',()=>{
   document.getElementById("userName").textContent = '';
 })
 formCloseBtn.addEventListener("click", () => {
-  home.classList.remove("show");
+  body.classList.remove("show");
 });
 
 pwShowHide.forEach((icon) => {
@@ -62,7 +63,7 @@ function onLogin() {
         user.password === document.getElementById("loginPass").value
       ) {
         snackbar("User loggedIn Successfully...");
-        home.classList.remove("show");
+        body.classList.remove("show");
         document.getElementById("loginError").style.display = "none";
         document.getElementById("profile").style.visibility ='visible';
         document.getElementById("logout").style.display ='block';

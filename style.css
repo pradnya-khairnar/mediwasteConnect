@@ -92,9 +92,9 @@ a {
   top: 100px;
   width: 100%;
 }
-#home::before {
+body::before {
   content: "";
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
@@ -103,7 +103,7 @@ a {
   pointer-events: none;
   transition: all 0.5s ease-out;
 }
-#home.show::before {
+body.show::before {
   opacity: 1;
   pointer-events: auto;
 }
@@ -124,7 +124,7 @@ a {
   pointer-events: none;
   transition: all 0.4s ease-out;
 }
-#home.show .form_container {
+body.show .form_container {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);

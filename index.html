@@ -49,6 +49,101 @@
         </div>
       </nav>
     </header>
+    <div id="snackbar"></div>
+    <div class="form_container">
+      <i class="uil uil-times form_close"></i>
+      <!-- Login From -->
+      <div class="form login_form">
+        <form action="#">
+          <h2>Login</h2>
+
+          <div class="input_box">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              id="loginEmail"
+            />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input
+              type="password"
+              placeholder="Enter your password"
+              id="loginPass"
+              required
+            />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="error" id="loginError">
+            Invalid credentials, please validated email or password.
+          </div>
+          <button class="button" id="loginNow">Login Now</button>
+
+          <div class="login_signup">
+            Don't have an account? <a href="#" id="signup">Register</a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Signup From -->
+      <div class="form signup_form">
+        <form action="#">
+          <h2>Register</h2>
+
+          <div class="input_box">
+            <i class="uil uil-user"></i>
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              id="name"
+              required
+            />
+          </div>
+          <div class="input_box">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              id="signupEmail"
+              required
+            />
+            <i class="uil uil-envelope-alt email"></i>
+          </div>
+          <div class="input_box">
+            <input
+              type="password"
+              placeholder="Create password"
+              id="signupPass1"
+              required
+            />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="input_box">
+            <input
+              type="password"
+              placeholder="Confirm password"
+              id="signupPass2"
+              required
+            />
+            <i class="uil uil-lock password"></i>
+            <i class="uil uil-eye-slash pw_hide"></i>
+          </div>
+          <div class="error" id="signupError">
+            Password & confirm password doesn't match, please validate.
+          </div>
+          <div class="error" id="userExistsError">
+            Email id already registered, please use different one.
+          </div>
+          <button class="button" id="signupNow">Register Now</button>
+
+          <div class="login_signup">
+            Already have an account? <a href="#" id="login">Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <!-- Home -->
     <section id="home">
@@ -98,101 +193,6 @@
         <img src="processDesign.jpg" style="width: 100%; margin-bottom: 50px;" />
       </div>
       <!-- git in forms -->
-      <div id="snackbar"></div>
-      <div class="form_container">
-        <i class="uil uil-times form_close"></i>
-        <!-- Login From -->
-        <div class="form login_form">
-          <form action="#">
-            <h2>Login</h2>
-
-            <div class="input_box">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                id="loginEmail"
-              />
-              <i class="uil uil-envelope-alt email"></i>
-            </div>
-            <div class="input_box">
-              <input
-                type="password"
-                placeholder="Enter your password"
-                id="loginPass"
-                required
-              />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            <div class="error" id="loginError">
-              Invalid credentials, please validated email or password.
-            </div>
-            <button class="button" id="loginNow">Login Now</button>
-
-            <div class="login_signup">
-              Don't have an account? <a href="#" id="signup">Register</a>
-            </div>
-          </form>
-        </div>
-
-        <!-- Signup From -->
-        <div class="form signup_form">
-          <form action="#">
-            <h2>Register</h2>
-
-            <div class="input_box">
-              <i class="uil uil-user"></i>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                id="name"
-                required
-              />
-            </div>
-            <div class="input_box">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                id="signupEmail"
-                required
-              />
-              <i class="uil uil-envelope-alt email"></i>
-            </div>
-            <div class="input_box">
-              <input
-                type="password"
-                placeholder="Create password"
-                id="signupPass1"
-                required
-              />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            <div class="input_box">
-              <input
-                type="password"
-                placeholder="Confirm password"
-                id="signupPass2"
-                required
-              />
-              <i class="uil uil-lock password"></i>
-              <i class="uil uil-eye-slash pw_hide"></i>
-            </div>
-            <div class="error" id="signupError">
-              Password & confirm password doesn't match, please validate.
-            </div>
-            <div class="error" id="userExistsError">
-              Email id already registered, please use different one.
-            </div>
-            <button class="button" id="signupNow">Register Now</button>
-
-            <div class="login_signup">
-              Already have an account? <a href="#" id="login">Login</a>
-            </div>
-          </form>
-        </div>
-      </div>
       <!-- footer -->
       <footer class="footerHome">
         <div style="display: flex;justify-content: space-between;">
