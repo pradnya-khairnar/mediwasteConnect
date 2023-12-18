@@ -3,6 +3,7 @@ var home = document.querySelector("#home");
 var body = document.querySelector("body");
 var formContainer = document.querySelector(".form_container");
 var formCloseBtn = document.querySelector(".form_close");
+var profileFormCloseBtn = document.querySelector(".profile_form_close");
 var signupBtn = document.getElementById("signup");
 var loginBtn = document.getElementById("login");
 var pwShowHide = document.querySelectorAll(".pw_hide");
@@ -12,21 +13,29 @@ document.getElementById("userExistsError").style.display = "none";
 document.getElementById("profile").style.visibility = "hidden";
 document.getElementById("logout").style.display = "none";
 document.getElementById("showServices").style.display = "none";
-formOpenBtn.addEventListener('click', () => {
+document.getElementById("manageProfile").style.display = "none";
+formOpenBtn.addEventListener("click", () => {
   body.classList.add("show");
   document.getElementById("loginError").style.display = "none";
   document.getElementById("signupError").style.display = "none";
   document.getElementById("userExistsError").style.display = "none";
 });
-document.getElementById('logout').addEventListener('click',()=>{
-  document.getElementById("logout").style.display = "none";
-  document.getElementById("form-open").style.display = "block";
-  document.getElementById("profile").style.visibility = "hidden";
-  document.getElementById("showServices").style.display = "none";
-  document.getElementById("userName").textContent = '';
-})
+const logoutBtn = document.querySelectorAll(".logoutBtn");
+logoutBtn.forEach((el) => {
+  el.addEventListener("click", () => {
+    document.getElementById("logout").style.display = "none";
+    document.getElementById("form-open").style.display = "block";
+    document.getElementById("profile").style.visibility = "hidden";
+    document.getElementById("showServices").style.display = "none";
+    document.getElementById("userName").textContent = "";
+    document.querySelector("nav").classList.toggle("open");
+  });
+});
 formCloseBtn.addEventListener("click", () => {
   body.classList.remove("show");
+});
+profileFormCloseBtn.addEventListener("click", () => {
+  body.classList.remove("show1");
 });
 
 pwShowHide.forEach((icon) => {
@@ -56,7 +65,7 @@ document.getElementById("loginNow").addEventListener("click", onLogin);
 
 function onLogin() {
   let users = JSON.parse(localStorage.getItem("user"));
-  if(users){
+  if (users) {
     users.forEach(function (user) {
       if (
         user.email === document.getElementById("loginEmail").value &&
@@ -65,10 +74,14 @@ function onLogin() {
         snackbar("User loggedIn Successfully...");
         body.classList.remove("show");
         document.getElementById("loginError").style.display = "none";
-        document.getElementById("profile").style.visibility ='visible';
-        document.getElementById("logout").style.display ='block';
+        document.getElementById("profile").style.visibility = "visible";
+        document.getElementById("logout").style.display = "block";
         document.getElementById("form-open").style.display = "none";
         document.getElementById("userName").textContent = user.name;
+        document.getElementById("sidebarUserName").textContent = user.name;
+        document.getElementById("sidebarUserEmail").textContent = user.email;
+        document.getElementById("profileName").textContent = user.name;
+        document.getElementById("profileEmail").textContent = user.email;
         document.getElementById("showServices").style.display = "block";
       } else {
         document.getElementById("loginError").style.display = "block";
@@ -77,7 +90,6 @@ function onLogin() {
   } else {
     document.getElementById("loginError").style.display = "block";
   }
-
 }
 
 // signup now
@@ -123,44 +135,44 @@ function snackbar(msg) {
   }, 3000);
 }
 // home
-document.getElementById("home").style.display='block';
-document.getElementById("homePage").addEventListener("click", ()=>{
-  document.getElementById("ourServices").style.display='none';
-  document.getElementById("home").style.display='block';
-  document.getElementById("ourClients").style.display='none';
-  document.getElementById("contactUs").style.display='none';
+document.getElementById("home").style.display = "block";
+document.getElementById("homePage").addEventListener("click", () => {
+  document.getElementById("ourServices").style.display = "none";
+  document.getElementById("home").style.display = "block";
+  document.getElementById("ourClients").style.display = "none";
+  document.getElementById("contactUs").style.display = "none";
 });
 // services
-document.getElementById("ourServices").style.display='none';
-document.getElementById("showServices").addEventListener("click", ()=>{
-  document.getElementById("ourServices").style.display='block';
-  document.getElementById("home").style.display='none';
-  document.getElementById("ourClients").style.display='none';
-  document.getElementById("contactUs").style.display='none';
+document.getElementById("ourServices").style.display = "none";
+document.getElementById("showServices").addEventListener("click", () => {
+  document.getElementById("ourServices").style.display = "block";
+  document.getElementById("home").style.display = "none";
+  document.getElementById("ourClients").style.display = "none";
+  document.getElementById("contactUs").style.display = "none";
 });
 
 // clients
-document.getElementById("ourClients").style.display='none';
-document.getElementById("showClients").addEventListener("click", ()=>{
-  document.getElementById("ourServices").style.display='none';
-  document.getElementById("home").style.display='none';
-  document.getElementById("ourClients").style.display='block';
-  document.getElementById("contactUs").style.display='none';
+document.getElementById("ourClients").style.display = "none";
+document.getElementById("showClients").addEventListener("click", () => {
+  document.getElementById("ourServices").style.display = "none";
+  document.getElementById("home").style.display = "none";
+  document.getElementById("ourClients").style.display = "block";
+  document.getElementById("contactUs").style.display = "none";
 });
 
 // contactus
-document.getElementById("contactUs").style.display='none';
-document.getElementById("showContact").addEventListener("click", ()=>{
-  document.getElementById("ourServices").style.display='none';
-  document.getElementById("home").style.display='none';
-  document.getElementById("ourClients").style.display='none';
-  document.getElementById("contactUs").style.display='block';
+document.getElementById("contactUs").style.display = "none";
+document.getElementById("showContact").addEventListener("click", () => {
+  document.getElementById("ourServices").style.display = "none";
+  document.getElementById("home").style.display = "none";
+  document.getElementById("ourClients").style.display = "none";
+  document.getElementById("contactUs").style.display = "block";
 });
 // send mail
 function sendMail() {
-  const message = document.getElementById('contactMsg').value;
-  const subject = document.getElementById('contactSubject').value;
-  const name =document.getElementById('contactName').value
+  const message = document.getElementById("contactMsg").value;
+  const subject = document.getElementById("contactSubject").value;
+  const name = document.getElementById("contactName").value;
   var link = `mailto:anikets20177@gmail.com?subject=${subject}&body=${message}`;
   window.location.href = link;
 }
@@ -170,25 +182,54 @@ let slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" activeDot", "");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " activeDot";
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " activeDot";
 }
+
+// sidebar
+
+function toggleSidebar() {
+  const navBar = document.querySelector("nav"),
+    menuBtns = document.querySelectorAll(".menu-icon"),
+    overlay = document.querySelector(".overlay");
+
+  menuBtns.forEach((menuBtn) => {
+    menuBtn.addEventListener("click", () => {
+      navBar.classList.toggle("open");
+    });
+  });
+
+  overlay.addEventListener("click", () => {
+    navBar.classList.remove("open");
+  });
+}
+
+// show profile section
+document.getElementById("manageAccountBtn").addEventListener("click", () => {
+  body.classList.add("show1");
+  document.getElementById("manageProfile").style.display = "block";
+  document.querySelector("nav").classList.toggle("open");
+});

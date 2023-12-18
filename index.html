@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab || www.codinglabweb.com -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MediWaste Connect</title>
-    <link rel="stylesheet" href="style.css" />
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <!-- Unicons -->
     <link
       rel="stylesheet"
@@ -20,6 +26,7 @@
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- Header -->
@@ -40,11 +47,37 @@
           </ul>
 
           <button class="button" id="form-open">Login</button>
-          <button class="button" id="logout">Logout</button>
+          <button class="button logoutBtn" id="logout">Logout</button>
 
-          <div>
+          <div class="menu-icon" >
             <i class="uil uil-user" id="profile"></i>
-            <span id="userName"></span>
+            <span id="userName" onclick="toggleSidebar()"></span>
+          </div>
+        </div>
+        <!-- sidebar -->
+        <div class="sidebar">
+          <div class="menu-icon" >
+            <i class="uil uil-user" id="profile"></i>
+            <span id="sidebarUserName" onclick="toggleSidebar()"></span><br>
+            <span id="sidebarUserEmail" class="text-black-50"></span>
+          </div>
+
+          <div class="sidebar-content">
+            <ul class="lists">
+              <li class="list">
+                <a href="#" class="nav-link">
+                  <i class="bx bx-cog icon"></i>
+                  <span class="link" id="manageAccountBtn">Manage Account</span>
+                </a>
+              </li>
+              </li>
+              <li class="list">
+                <a href="#" class="nav-link">
+                  <i class="bx bx-log-out icon"></i>
+                  <span class="link logoutBtn"  onclick="toggleSidebar()">Logout</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -149,27 +182,25 @@
     <section id="home">
       <!-- sliding images -->
       <div class="slideshow-container">
-        <div class="mySlides fade">
+        <div class="mySlides my-fade">
           <img src="slide1.jpg" style="width: 100%" />
         </div>
 
-        <div class="mySlides fade">
+        <div class="mySlides my-fade">
           <img src="slide2.jpg" style="width: 100%" />
         </div>
 
-        <div class="mySlides fade">
+        <div class="mySlides my-fade">
           <img src="slide3.jpg" style="width: 100%" />
         </div>
-        <div class="mySlides fade">
+        <div class="mySlides my-fade">
           <img src="slide4.jpg" style="width: 100%" />
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
 
-        <div style="text-align: center;
-        position: relative;
-        bottom: 90px;">
+        <div style="text-align: center; position: relative; bottom: 90px">
           <span class="dot" onclick="currentSlide(1)"></span>
           <span class="dot" onclick="currentSlide(2)"></span>
           <span class="dot" onclick="currentSlide(3)"></span>
@@ -185,8 +216,11 @@
         <img src="ourPurpose.jpg" style="width: 100%" />
       </div>
       <div class="objective">
-        <h1 style="text-align: center; margin-bottom: 10px;">Our Objective</h1>
-        <img src="objective.png" style="width: 100%; height: 100vh;width: 100vw;" />
+        <h1 style="text-align: center; margin-bottom: 10px">Our Objective</h1>
+        <img
+          src="objective.png"
+          style="width: 100%; height: 100vh; width: 100vw"
+        />
       </div>
       <!-- <div class="processDesign">
         <h1 style="text-align: center; margin-bottom: 10px">Process Design</h1>
@@ -195,17 +229,28 @@
       <!-- git in forms -->
       <!-- footer -->
       <footer class="footerHome">
-        <div style="display: flex;justify-content: space-between;">
-          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+        <div style="display: flex; justify-content: space-between">
+          <div style="margin-top: 10px">
+            © 2023 MediWaste Connects™. All Rights Reserved.
+          </div>
           <div>
-            <a href="https://facebook.com" class="fa fa-facebook"></a>
-            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61554818811415&mibextid=rS40aB7S9Ucbxw6v"
+              class="fa fa-facebook"
+            ></a>
+            <a
+              href="https://x.com/MediWasteCenct?t=1_9wkT9TAdGdKse37Eg2kw&s=09"
+              class="fa fa-twitter"
+            ></a>
             <a href="https://google.com" class="fa fa-google"></a>
             <a href="https://linkedin.com" class="fa fa-linkedin"></a>
-            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a
+              href=" https://instagram.com/mediwasteconnect_?igshid=OGQ5ZDc2ODk2ZA=="
+              class="fa fa-instagram"
+            ></a>
+          </div>
         </div>
-        </div>
-      </footer> 
+      </footer>
     </section>
     <!-- services -->
     <section id="ourServices">
@@ -213,12 +258,13 @@
       <p style="text-align: center; margin-bottom: 30px">
         Click on service name to select service:
       </p>
-      <div style="display: flex" style="margin-bottom: 25px;">
+      <div style="display: flex" style="margin-bottom: 25px">
         <div id="wasteMgmt" style="text-align: center">
           <h3>
             <a
               href="https://buy.stripe.com/test_3cs6qc4zKaXj0dG7sw"
-              target="_blank">Waste Management</a
+              target="_blank"
+              >Waste Management</a
             >
           </h3>
           <div class="step">
@@ -289,18 +335,29 @@
           </div>
         </div> -->
       </div>
-      <footer class="footer">
-        <div style="display: flex;justify-content: space-between;">
-          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+      <footer class="footerHome">
+        <div style="display: flex; justify-content: space-between">
+          <div style="margin-top: 10px">
+            © 2023 MediWaste Connects™. All Rights Reserved.
+          </div>
           <div>
-            <a href="https://facebook.com" class="fa fa-facebook"></a>
-            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61554818811415&mibextid=rS40aB7S9Ucbxw6v"
+              class="fa fa-facebook"
+            ></a>
+            <a
+              href="https://x.com/MediWasteCenct?t=1_9wkT9TAdGdKse37Eg2kw&s=09"
+              class="fa fa-twitter"
+            ></a>
             <a href="https://google.com" class="fa fa-google"></a>
             <a href="https://linkedin.com" class="fa fa-linkedin"></a>
-            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a
+              href=" https://instagram.com/mediwasteconnect_?igshid=OGQ5ZDc2ODk2ZA=="
+              class="fa fa-instagram"
+            ></a>
+          </div>
         </div>
-        </div>
-      </footer> 
+      </footer>
     </section>
 
     <!-- clients -->
@@ -323,24 +380,35 @@
         Shah Hospital<br />
         Jagatap Hospital<br />
       </div>
-      <footer class="footer">
-        <div style="display: flex;justify-content: space-between;">
-          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+      <footer class="footerHome">
+        <div style="display: flex; justify-content: space-between">
+          <div style="margin-top: 10px">
+            © 2023 MediWaste Connects™. All Rights Reserved.
+          </div>
           <div>
-            <a href="https://facebook.com" class="fa fa-facebook"></a>
-            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61554818811415&mibextid=rS40aB7S9Ucbxw6v"
+              class="fa fa-facebook"
+            ></a>
+            <a
+              href="https://x.com/MediWasteCenct?t=1_9wkT9TAdGdKse37Eg2kw&s=09"
+              class="fa fa-twitter"
+            ></a>
             <a href="https://google.com" class="fa fa-google"></a>
             <a href="https://linkedin.com" class="fa fa-linkedin"></a>
-            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a
+              href=" https://instagram.com/mediwasteconnect_?igshid=OGQ5ZDc2ODk2ZA=="
+              class="fa fa-instagram"
+            ></a>
+          </div>
         </div>
-        </div>
-      </footer> 
+      </footer>
     </section>
-<!-- contactus -->
+    <!-- contactus -->
     <section id="contactUs">
       <h1>Contact Us</h1>
 
-      <div style="display: flex; padding-top: 50px;">
+      <div style="display: flex; padding-top: 50px">
         <div id="contactUsLogo" style="width: 60%">
           <img
             src="./logo.png"
@@ -390,19 +458,80 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div style="display: flex;justify-content: space-between;">
-          <div style="margin-top: 10px;">© 2023 MediWaste Connects™. All Rights Reserved.</div>
+
+      <!-- footer -->
+      <footer class="footerHome">
+        <div style="display: flex; justify-content: space-between">
+          <div style="margin-top: 10px">
+            © 2023 MediWaste Connects™. All Rights Reserved.
+          </div>
           <div>
-            <a href="https://facebook.com" class="fa fa-facebook"></a>
-            <a href="https://twitter.com" class="fa fa-twitter"></a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61554818811415&mibextid=rS40aB7S9Ucbxw6v"
+              class="fa fa-facebook"
+            ></a>
+            <a
+              href="https://x.com/MediWasteCenct?t=1_9wkT9TAdGdKse37Eg2kw&s=09"
+              class="fa fa-twitter"
+            ></a>
             <a href="https://google.com" class="fa fa-google"></a>
             <a href="https://linkedin.com" class="fa fa-linkedin"></a>
-            <a href="https://instagram.com" class="fa fa-instagram"></a>
+            <a
+              href=" https://instagram.com/mediwasteconnect_?igshid=OGQ5ZDc2ODk2ZA=="
+              class="fa fa-instagram"
+            ></a>
+          </div>
         </div>
-        </div>
-      </footer> 
+      </footer>
     </section>
+    <!-- profile section -->
+    <section id="manageProfile" class="form_container1">
+      <i class="uil uil-times profile_form_close"></i>
+      <div class="container rounded bg-white">
+        <div class="row" style="max-height: 85vh;">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold" id="profileName"></span><span class="text-black-50" id="profileEmail"></span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right ">
+                <div class="p-3 py-5" style="    max-height: 70vh;
+            ">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                        <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                        <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div class="col-md-4 h-50" style="margin-top: 50px;">
+                <div class="p-3 py-5">
+                  <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+                  <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+                  <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
+                  <div class="row mt-3">
+                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </section>
+    <section class="overlay"></section>
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

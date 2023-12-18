@@ -6,10 +6,10 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body{
+body {
   position: relative;
 }
-h1{
+h1 {
   font-size: xx-large;
   color: rgb(83, 94, 204);
   text-align: center;
@@ -20,15 +20,15 @@ a {
 }
 .header {
   position: fixed;
-  top:0;
+  top: 0;
   height: 100px;
   width: 100%;
   z-index: 100;
   padding: 0 20px;
-  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.1);
   background-color: white;
 }
-.footer{
+.footer {
   position: fixed;
   bottom: 0;
   height: 44px;
@@ -38,8 +38,8 @@ a {
   box-shadow: 0px 3px 6px 0px rgba(130, 143, 163);
   background-color: white;
 }
-.footerHome{
-  height: 44px;
+.footerHome {
+  height: 60px;
   width: 100%;
   z-index: 100;
   padding: 0 30px;
@@ -54,15 +54,15 @@ a {
 .nav,
 .nav_item {
   display: flex;
+  flex-wrap: nowrap !important;
   height: 100%;
   align-items: center;
   justify-content: space-between;
 }
-.nav_logo{
+.nav_logo {
   color: rgb(0, 0, 0);
 }
-.nav_link
-{
+.nav_link {
   color: rgb(0, 0, 0);
 }
 .nav_logo {
@@ -81,7 +81,7 @@ a {
 .button:active {
   transform: scale(0.98);
 }
-#logo{
+#logo {
   height: 250px;
   margin-top: 65px;
   margin-right: 12px;
@@ -104,12 +104,15 @@ body::before {
   pointer-events: none;
   transition: all 0.5s ease-out;
 }
-body.show::before {
+body.show::before,
+body.show1::before {
   opacity: 1;
   pointer-events: auto;
 }
+
 /* From */
-.form_container {
+.form_container,
+.form_container1 {
   position: fixed;
   max-width: 320px;
   width: 100%;
@@ -125,7 +128,13 @@ body.show::before {
   pointer-events: none;
   transition: all 0.4s ease-out;
 }
-body.show .form_container {
+.form_container1 {
+  max-width: 70%;
+  max-height: 90vh;
+  box-shadow: 1px 1px 6px 1px rgba(130, 143, 163);
+}
+body.show .form_container,
+body.show1 .form_container1 {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, -50%) scale(1);
@@ -139,7 +148,8 @@ body.show .form_container {
 .form_container.active .login_form {
   display: none;
 }
-.form_close {
+.form_close,
+.profile_form_close {
   position: absolute;
   top: 10px;
   right: 20px;
@@ -219,8 +229,7 @@ body.show .form_container {
   user-select: none;
   color: #0b0217;
 }
-.form_container
- .button {
+.form_container .button {
   background: rgb(83, 94, 204);
   margin-top: 30px;
   width: 100%;
@@ -258,26 +267,50 @@ body.show .form_container {
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
-.error{
+.error {
   font-size: 12px;
   color: red;
   margin-top: 10px;
@@ -294,16 +327,16 @@ body.show .form_container {
 }
 
 .fa:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 .fa-facebook {
-  background: #3B5998;
+  background: #3b5998;
   color: white;
 }
 
 .fa-twitter {
-  background: #55ACEE;
+  background: #55acee;
   color: white;
 }
 
@@ -321,24 +354,34 @@ body.show .form_container {
   color: white;
 }
 
-#profile::before{
+#profile::before {
   font-size: 30px !important;
   margin-left: 25px;
   margin-top: 5px;
 }
-#ourServices, #ourClients, #contactUs{
+#ourServices,
+#ourClients,
+#contactUs {
   position: relative;
   top: 120px;
-
 }
-.step{
+#ourClients,
+#contactUs {
+  height: 84vh;
+}
+#ourClients .footerHome,
+#contactUs .footerHome {
+  position: absolute;
+  bottom: 0;
+}
+.step {
   width: 60%;
   margin: 25px 20%;
   padding: 15px;
   background: rgb(212, 215, 248);
   border-radius: 15px;
 }
-#contactSubmit{
+#contactSubmit {
   background: rgb(83, 94, 204);
   margin-top: 30px;
   width: 20%;
@@ -348,18 +391,23 @@ body.show .form_container {
 }
 
 /* sliding images */
-.mySlides {display: none}
-.slideshow-container img {vertical-align: middle;}
+.mySlides {
+  display: none;
+}
+.slideshow-container img {
+  vertical-align: middle;
+}
 
 /* Slideshow container */
 .slideshow-container {
- width: 100vw;
+  width: 100vw;
   position: relative;
   margin: auto;
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -381,8 +429,9 @@ body.show .form_container {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Caption text */
@@ -417,22 +466,160 @@ body.show .form_container {
   transition: background-color 0.6s ease;
 }
 
-.activeDot, .dot:hover {
+.activeDot,
+.dot:hover {
   background-color: rgb(83, 94, 204);
 }
 
 /* Fading animation */
-.fade {
-  animation-name: fade;
+.my-fade {
+  animation-name: my-fade;
   animation-duration: 1.5s;
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+@keyframes my-fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
+}
+
+/* sidebar */
+#sidebarUserEmail {
+  margin-left: 60px;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  margin: 0 24px;
+}
+.logo .menu-icon {
+  color: #333;
+  font-size: 24px;
+  margin-right: 14px;
+  cursor: pointer;
+}
+.logo .logo-name {
+  color: #333;
+  font-size: 22px;
+  font-weight: 500;
+}
+nav .sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100%;
+  width: 260px;
+  padding: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 5px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+nav.open .sidebar {
+  right: 0;
+}
+.sidebar .sidebar-content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px 16px;
+}
+.sidebar-content .list {
+  list-style: none;
+}
+.list .nav-link {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.lists .nav-link:hover {
+  background-color: rgb(83, 94, 204);
+}
+.nav-link .icon {
+  margin-right: 14px;
+  font-size: 20px;
+  color: #707070;
+}
+.nav-link .link {
+  font-size: 16px;
+  color: #707070;
+  font-weight: 400;
+}
+.lists .nav-link:hover .icon,
+.lists .nav-link:hover .link {
+  color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 1000vh;
+  width: 200%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  background: rgba(0, 0, 0, 0.3);
+}
+nav.open ~ .overlay {
+  opacity: 1;
+  right: 260px;
+  pointer-events: auto;
+}
+
+/* profile */
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #ba68c8;
+}
+
+.profile-button {
+  background: rgb(99, 39, 120);
+  box-shadow: none;
+  border: none;
+}
+
+.profile-button:hover {
+  background: #682773;
+}
+
+.profile-button:focus {
+  background: #682773;
+  box-shadow: none;
+}
+
+.profile-button:active {
+  background: #682773;
+  box-shadow: none;
+}
+
+.back:hover {
+  color: #682773;
+  cursor: pointer;
+}
+
+.labels {
+  font-size: 11px;
+}
+
+.add-experience:hover {
+  background: #ba68c8;
+  color: #fff;
+  cursor: pointer;
+  border: solid 1px #ba68c8;
 }
