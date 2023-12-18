@@ -41,6 +41,7 @@
             <li class="nav_item">
               <a href="#" class="nav_link" id="homePage">Home</a>
               <a href="#" class="nav_link" id="showServices">Our Services</a>
+              <a href="#" class="nav_link" id="showHistory">History</a>
               <a href="#" class="nav_link" id="showClients">Our Clients</a>
               <a href="#" class="nav_link" id="showContact">Contact Us</a>
             </li>
@@ -49,17 +50,22 @@
           <button class="button" id="form-open">Login</button>
           <button class="button logoutBtn" id="logout">Logout</button>
 
-          <div class="menu-icon" >
+          <div class="menu-icon" id="userIconName">
             <i class="uil uil-user" id="profile"></i>
-            <span id="userName" onclick="toggleSidebar()"></span>
+            <span id="userName"></span>
           </div>
         </div>
         <!-- sidebar -->
         <div class="sidebar">
-          <div class="menu-icon" >
+          <i class="uil uil-times sidebar_form_close"></i>
+          <div class="menu-icon" style="display: flex;"
+           >
             <i class="uil uil-user" id="profile"></i>
-            <span id="sidebarUserName" onclick="toggleSidebar()"></span><br>
-            <span id="sidebarUserEmail" class="text-black-50"></span>
+            <span style="margin-left: 10px;">
+              <span id="sidebarUserName"></span><br>
+              <span id="sidebarUserEmail" class="text-black-50"></span>
+            </span>
+         
           </div>
 
           <div class="sidebar-content">
@@ -197,8 +203,8 @@
           <img src="slide4.jpg" style="width: 100%" />
         </div>
 
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
+        <!-- <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a> -->
 
         <div style="text-align: center; position: relative; bottom: 90px">
           <span class="dot" onclick="currentSlide(1)"></span>
@@ -490,7 +496,7 @@
       <div class="container rounded bg-white">
         <div class="row" style="max-height: 85vh;">
             <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold" id="profileName"></span><span class="text-black-50" id="profileEmail"></span><span> </span></div>
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold" id="profileName"></span><span class="text-black-50" id="profileEmailLabel"></span><span> </span></div>
             </div>
             <div class="col-md-5 border-right ">
                 <div class="p-3 py-5" style="    max-height: 70vh;
@@ -499,30 +505,27 @@
                         <h4 class="text-right">Profile Settings</h4>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+                        <div class="col-md-6"><label class="labels">Name</label><input id="firstName" type="text" class="form-control" placeholder="first name" value=""></div>
+                        <div class="col-md-6"><label class="labels">Surname</label><input id="lastName" type="text" class="form-control" value="" placeholder="surname"></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
-                        <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                        <div class="col-md-12"><label class="labels">Mobile Number</label><input id="mobile" type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address Line 1</label><input id="address1" type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                        <div class="col-md-12"><label class="labels">Address Line 2</label><input id="address2" type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                        <div class="col-md-12"><label class="labels">Postcode</label><input id="postcode" type="text" class="form-control" placeholder="enter postcode" value=""></div>
+                        <div class="col-md-12"><label class="labels">Area</label><input id="area" type="text" class="form-control" placeholder="enter area" value=""></div>
+                        <div class="col-md-12"><label class="labels">State</label><input id="state" type="text" class="form-control" placeholder="enter state" value=""></div>
                     </div>
                    
                 </div>
             </div>
             <div class="col-md-4 h-50" style="margin-top: 50px;">
                 <div class="p-3 py-5">
-                  <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                  <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-                  <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                  <div class="row mt-3">
-                    <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-                    <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-                </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                  <div class="col-md-12"><label class="labels">Country</label><input id="country" type="text" class="form-control" placeholder="enter country" value=""></div>
+                  <div class="col-md-12"><label class="labels">Email ID</label><input id="profileEmail" type="text" class="form-control" placeholder="enter email id" value=""></div>
+                  <div class="col-md-12"><label class="labels">Education</label><input id="education" type="text" class="form-control" placeholder="education" value=""></div>
+                  <div class="col-md-12"><label class="labels">Additional Details</label><input id="details" type="text" class="form-control" placeholder="additional details" value=""></div>
+                <div class="mt-5 text-center"><button id="saveProfile" class="btn btn-primary profile-button" type="button">Save Profile</button></div>
                 </div>
             </div>
         </div>
