@@ -32,6 +32,8 @@ logoutBtn.forEach((el) => {
     document.getElementById("profile").style.visibility = "hidden";
     document.getElementById("showServices").style.display = "none";
     document.getElementById("showHistory").style.display = "none";
+    document.getElementById("ourServices").style.display = "none";
+    document.getElementById("home").style.display = "block";
     document.getElementById("userName").textContent = "";
     document.querySelector("nav").classList.remove("open");
   });
